@@ -1,0 +1,19 @@
+{
+    "endpoints": [
+        {
+            "name": "Public API (200)",
+            "url": "https://httpbin.org/status/200"
+        },
+        {
+            "name": "Auth Service",
+            "url": "https://httpbin.org/status/401"
+        },
+        {
+            "url": "https://jsonplaceholder.typicode.com/posts"
+        },
+        {
+            "name": "Broken Link",
+            "url": "https://httpbin.org/status/500"
+        }
+    ]
+}
