@@ -44,7 +44,6 @@ check_endpoint() {
   fi
 }
 
-# Parse args
 if [[ $# -eq 0 ]]; then
   usage
 fi
@@ -73,7 +72,6 @@ while [[ $# -gt 0 ]]; do
         exit 1
       fi
 
-      # Validate structure
       if ! jq '.endpoints // empty' "$2" >/dev/null; then
         echo "Error: Invalid config: missing 'endpoints' array." >&2
         exit 1
@@ -108,7 +106,7 @@ if [[ ${#ENDPOINTS[@]} -eq 0 ]]; then
   usage
 fi
 
-echo "🔍 Checking ${#ENDPOINTS[@]} endpoints..."
+echo "Checking ${#ENDPOINTS[@]} endpoints..."
 
 > "$LOG_FILE"
 
@@ -118,7 +116,7 @@ for ep in "${ENDPOINTS[@]}"; do
 done
 
 echo ""
-echo "✅ Done. Failures: $FAILED_COUNT"
+echo "Done. Failures: $FAILED_COUNT"
 
 exit $((FAILED_COUNT > 255 ? 255 : FAILED_COUNT))
 
